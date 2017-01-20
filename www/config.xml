@@ -3,9 +3,9 @@
 	version="0.2.0"
 	xmlns="http://www.w3.org/ns/widgets"
 	xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>RadarTesoros</name>
+    <name>BeaconAngular</name>
     <description>
-        aplicacion para encontrar beacons
+        encuentra beacons
     </description>
     <content src="index.html" />
     <access origin="*" />
