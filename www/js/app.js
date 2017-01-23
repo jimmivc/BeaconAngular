@@ -1,16 +1,25 @@
+
+'use strict';
+
 // Define application object and common functions.
 var app = (function()
 {
+
 	// Application object.
 	var app = {};
 
+	angular.module('myApp', [
+	  'ngRoute',
+	  'myApp.menu',
+	  'myApp.beaconFinder'
+	]).
+	config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
+	  $locationProvider.hashPrefix('!');
 
-	// app = angular.module('beakokonsApp',[]);
-	// .controller('test',function(){
-	// 	console.log('holi');
-	// 	console.log(JSON.stringify(estimote));
-	// 	console.log('tiiiiiiii');
-	// });
+	  $routeProvider.otherwise({redirectTo: '/menu'});
+	}]);
+
+
 
 	localStorage.clear();
 	localStorage.setItem('beacons',JSON.stringify([]));
