@@ -14,7 +14,7 @@ var app = (function()
 	  'myApp.beaconFinder'
 	]).
 	config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-	  $locationProvider.hashPrefix('!');
+	  // $locationProvider.hashPrefix('!');
 
 	  $routeProvider.otherwise({redirectTo: '/menu'});
 	}]);
