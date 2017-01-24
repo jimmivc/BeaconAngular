@@ -149,6 +149,7 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
       if(beaconInfo['beacons'].length>0){
         for (var i = 0; i < beaconInfo['beacons'].length; i++) {
           alert(beaconInfo['beacons'][i]);
+          createBeaconHTML(beaconInfo['beacons'][i]);
         }
       }
     };
@@ -246,7 +247,5 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
     estimote.beacons.stopRangingBeaconsInRegion({});
     app.showHomeScreen();
   };
-
-
 
 });
