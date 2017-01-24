@@ -29,8 +29,6 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
 
 .controller('main',function($scope, $ionicModal, localStorageService){
 
-  alert('permanent holiday');
-
   localStorage.clear();
   localStorage.setItem('beacons',JSON.stringify([]));
 
@@ -157,11 +155,13 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
     function createBeaconHTML(beacon)
     {
       alert('createBeaconHTML');
-      var colorClasses = app.beaconColorStyle(beacon.color);
+      // var colorClasses = app.beaconColorStyle(beacon.color);
 
       if (beacon.proximity)
       {
+        alert('got the first one')
         $scope.beaconProx = app.formatProximity(beacon.proximity);
+        alert('first got it')
       }
       if (beacon.distance)
       {
