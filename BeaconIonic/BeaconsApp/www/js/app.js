@@ -126,7 +126,9 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
     {
       alert('onRange1');
       displayBeconInfo(beaconInfo);
+      $scope.beaconProx = 'y tambien aqui :O';
       alert('onRange2');
+
     }
 
     function onError(errorMessage)
@@ -179,7 +181,7 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
         // }
         alert('finishing last');
         $scope.beaconTemp = '' + howCloseBeaconIs(beacon.distance);
-        alert(finished);
+        alert('finished');
       }
     };
 
