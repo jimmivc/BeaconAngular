@@ -46,7 +46,7 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
 
   $scope.scanBeacons = function (){
     alert('casual escaneando');
-    app.startRangingBeacons();
+    app.startRangingBeacons($scope);
   }
 
   // ------------- Private helper function ------------- //
@@ -115,7 +115,7 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
 
   // proximityNames = ['Nope','caliente','tibio','frio'];
 
-  app.startRangingBeacons = function()
+  app.startRangingBeacons = function($scope)
   {
     function onRange(beaconInfo)
     {
@@ -143,16 +143,15 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
         $('#id-screen-range-beacons .style-item-list').append(element);
       });
 
-      alert('display2');
     };
 
     function createBeaconHTML(beacon)
     {
+      alert('createBeaconHTML');
       var colorClasses = app.beaconColorStyle(beacon.color);
 
       if (beacon.proximity)
       {
-
         $scope.beaconProx = app.formatProximity(beacon.proximity);
       }
       if (beacon.distance)
