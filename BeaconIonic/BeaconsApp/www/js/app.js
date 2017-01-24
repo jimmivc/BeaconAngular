@@ -166,9 +166,9 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
 
       if (beacon.proximity)
       {
-        alert('got the first one')
+        alert('got the first one',app.formatProximity(beacon.proximity));
         $scope.beaconProx = app.formatProximity(beacon.proximity);
-        alert('first got it')
+        alert('first got it');
       }
       if (beacon.distance)
       {
