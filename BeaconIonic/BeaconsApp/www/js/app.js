@@ -132,7 +132,8 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
     function displayBeconInfo(beaconInfo)
     {
       alert('display beacon info'); 
-      alert(beacon);
+      alert('porfis...')
+      alert(beaconInfo);
       // Sort beacons by distance.
       // beaconInfo.beacons.sort(function(beacon1, beacon2) {
       //   return beacon1.distance > beacon2.distance; });
