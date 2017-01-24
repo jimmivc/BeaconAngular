@@ -147,7 +147,7 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
       //   $('#id-screen-range-beacons .style-item-list').append(element);
       // });
 
-      for each(var beacon in beaconInfo){
+      for (var beacon in beaconInfo){
         alert(beacon);
         createBeaconHTML(beacon);
       }
