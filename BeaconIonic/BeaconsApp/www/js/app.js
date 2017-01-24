@@ -32,7 +32,6 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
   $scope.beaconDist = 'como a 100 mts wey';
   $scope.beaconTemp = 'ufffff';
 
-
   localStorage.clear();
   localStorage.setItem('beacons',JSON.stringify([]));
 
@@ -77,6 +76,7 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
 
   app.formatProximity = function(proximity)
   {
+    alert('proximity',proximity);
     if (!proximity) { return 'desconocido'; }
 
     // Eliminate bad values (just in case).
@@ -138,7 +138,7 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
     {
       alert('display beacon info'); 
       alert('porfis...')
-      alert(JSON.stringify(beaconInfo));
+      // alert(JSON.stringify(beaconInfo));
       // Sort beacons by distance.
       // beaconInfo.beacons.sort(function(beacon1, beacon2) {
       //   return beacon1.distance > beacon2.distance; });
@@ -153,7 +153,6 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
       // });
       if(beaconInfo['beacons'].length>0){
         for (var i = 0; i < beaconInfo['beacons'].length; i++) {
-          alert(beaconInfo['beacons'][i]);
           createBeaconHTML(beaconInfo['beacons'][i]);
         }
       }
@@ -161,7 +160,8 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
 
     function createBeaconHTML(beacon)
     {
-      alert('createBeaconHTML');
+      alert(JSON.stringify(beacon));
+
       // var colorClasses = app.beaconColorStyle(beacon.color);
 
       if (beacon.proximity)
