@@ -1,0 +1,33 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.evothings.radarTesoros"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.evothings.radarTesoros"
+        },
+        "cordova-plugin-estimote": {
+            "PACKAGE_NAME": "com.evothings.radarTesoros"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.evothings.radarTesoros"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.evothings.radarTesoros"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.evothings.radarTesoros"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.evothings.radarTesoros"
+        }
+    },
+    "dependent_plugins": {}
+}
