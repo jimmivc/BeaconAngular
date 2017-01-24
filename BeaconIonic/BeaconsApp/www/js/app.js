@@ -76,7 +76,7 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
 
   app.formatProximity = function(proximity)
   {
-    alert('proximity',proximity);
+    alert(proximity);
     if (!proximity) { return 'desconocido'; }
 
     // Eliminate bad values (just in case).
@@ -115,7 +115,7 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
   beaconWarm = 20.0;
   beaconArround = 40.0;
 
-  // proximityNames = ['Nope','caliente','tibio','frio'];
+  proximityNames = ['Nope','caliente','tibio','frio'];
 
   app.startRangingBeacons = function($scope)
   {
@@ -162,28 +162,25 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
     {
       alert(JSON.stringify(beacon));
 
-      // var colorClasses = app.beaconColorStyle(beacon.color);
-
       if (beacon.proximity)
       {
-        alert('got the first one',app.formatProximity(beacon.proximity));
-        $scope.beaconProx = app.formatProximity(beacon.proximity);
+        alert('got the first one');
+        $scope.beaconProx = '' + app.formatProximity(beacon.proximity);
         alert('first got it');
       }
       if (beacon.distance)
       {
-        $scope.beaconDist = app.formatDistance(beacon.distance);          
-        
+        alert('started second');
+        $scope.beaconDist = '' + app.formatDistance(beacon.distance);          
+        alert('ended second');
         //llamar a esta funcion si se quiere ejecutar una llamada o accion a api con una distancia definida
         // if(isClose(beacon.distance,beaconDistance)){
         //  callMedia(beacon);
         // }
-
-        $scope.beaconTemp = howCloseBeaconIs(beacon.distance);
-
+        alert('finishing last');
+        $scope.beaconTemp = '' + howCloseBeaconIs(beacon.distance);
+        alert(finished);
       }
-      htm += '';
-      return htm;
     };
 
     // Show screen.
