@@ -152,18 +152,19 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
 
       if (beacon.proximity)
       {
-        app.formatProximity(beacon.proximity);
+
+        $scope.beaconProx = app.formatProximity(beacon.proximity);
       }
       if (beacon.distance)
       {
-        app.formatDistance(beacon.distance);          
+        $scope.beaconDist = app.formatDistance(beacon.distance);          
         
         //llamar a esta funcion si se quiere ejecutar una llamada o accion a api con una distancia definida
         // if(isClose(beacon.distance,beaconDistance)){
         //  callMedia(beacon);
         // }
 
-        howCloseBeaconIs(beacon.distance);
+        $scope.beaconTemp = howCloseBeaconIs(beacon.distance);
 
       }
       htm += '';
