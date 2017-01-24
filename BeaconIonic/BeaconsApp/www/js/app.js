@@ -124,9 +124,9 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
 
     function onRange(beaconInfo)
     {
+      $scope.beaconProx = 'on Range';
       alert('onRange1');
       displayBeconInfo(beaconInfo);
-      $scope.beaconProx = 'y tambien aqui :O';
       alert('onRange2');
 
     }
@@ -138,8 +138,10 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
 
     function displayBeconInfo(beaconInfo)
     {
+      $scope.beaconProx = 'displayingBeconInfo';
+
       alert('display beacon info'); 
-      alert('porfis...')
+      alert('porfis...');
       // alert(JSON.stringify(beaconInfo));
       // Sort beacons by distance.
       // beaconInfo.beacons.sort(function(beacon1, beacon2) {
@@ -163,6 +165,7 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
     function createBeaconHTML(beacon)
     {
       alert(JSON.stringify(beacon));
+      $scope.beaconProx = 'creating beacon html';
 
       if (beacon.proximity)
       {
@@ -204,11 +207,11 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
 
   function callMedia(beacon){
 
-    if(!findByMacAddress(beacon.macAddress)){
+    // if(!findByMacAddress(beacon.macAddress)){
 
-      //test
+    //   //test
       
-    }
+    // }
   }
 
   
