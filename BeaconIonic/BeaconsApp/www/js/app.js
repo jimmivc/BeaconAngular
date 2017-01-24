@@ -133,16 +133,16 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
     {
       alert('display beacon info'); 
       // Sort beacons by distance.
-      beaconInfo.beacons.sort(function(beacon1, beacon2) {
-        return beacon1.distance > beacon2.distance; });
+      // beaconInfo.beacons.sort(function(beacon1, beacon2) {
+      //   return beacon1.distance > beacon2.distance; });
 
-      // Generate HTML for beacons.
-      $.each(beaconInfo.beacons, function(key, beacon)
-      {
-        var element = $(createBeaconHTML(beacon));
-        $('#id-screen-range-beacons .style-item-list').append(element);
-      });
-
+      // // Generate HTML for beacons.
+      // $.each(beaconInfo.beacons, function(key, beacon)
+      // {
+      //   var element = $(createBeaconHTML(beacon));
+      //   $('#id-screen-range-beacons .style-item-list').append(element);
+      // });
+      createBeaconHTML(beacon);
     };
 
     function createBeaconHTML(beacon)
