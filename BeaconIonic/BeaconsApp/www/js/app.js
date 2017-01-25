@@ -122,12 +122,13 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
 
   app.startRangingBeacons = function($scope)
   {
-
-    $scope.beaconProx = 'como demonios sirve aqui pero no alla :(';
-    $scope.beaconDist = 'inalcansable';
-    $scope.beaconTemp = 'congelado';
-    $scope.beaconId = 'xq xq xq???';
-    alert($scope);
+    print('como','tu','te','llamas');
+    function print(id,prox,dist,temp){
+      $scope.beaconProx = 'como demonios sirve aqui pero no alla :(';
+      $scope.beaconDist = 'inalcansable';
+      $scope.beaconTemp = 'congelado';
+      $scope.beaconId = 'xq xq xq???';
+    }
 
     function onRange(beaconInfo)
     {
