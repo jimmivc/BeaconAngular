@@ -169,20 +169,22 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
 
       if (beacon.proximity)
       {
-        alert('got the first one');
+        alert(app.formatProximity(beacon.proximity));
+
         $scope.beaconProx = '' + app.formatProximity(beacon.proximity);
         alert('first got it');
       }
       if (beacon.distance)
       {
-        alert('started second');
+        alert(app.formatDistance(beacon.distance));
+
         $scope.beaconDist = '' + app.formatDistance(beacon.distance);          
         alert('ended second');
         //llamar a esta funcion si se quiere ejecutar una llamada o accion a api con una distancia definida
         // if(isClose(beacon.distance,beaconDistance)){
         //  callMedia(beacon);
         // }
-        alert('finishing last');
+        alert(howCloseBeaconIs(beacon.distance));
         $scope.beaconTemp = '' + howCloseBeaconIs(beacon.distance);
         alert('finished');
       }
@@ -193,9 +195,8 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
     // $('#id-screen-range-beacons .style-item-list').empty();
 
     // Request authorisation.
-    alert('estimote1');
     estimote.beacons.requestAlwaysAuthorization();
-    alert('estimote2');
+    alert('starting scan');
 
     // Start ranging.
     
