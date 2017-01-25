@@ -28,8 +28,9 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
 })
 
 .controller('main',function($scope, $ionicModal, localStorageService){
+  $scope.beaconId = 'sin identidad :(';
   $scope.beaconProx = 'aqui nomas';
-  $scope.beaconDist = 'como a 100 mts wey';
+  $scope.beaconDist = 'como a 100 mts we';
   $scope.beaconTemp = 'ufffff';
 
   localStorage.clear();
@@ -117,10 +118,16 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
 
   proximityNames = ['Nope','caliente','tibio','frio'];
 
+
+
   app.startRangingBeacons = function($scope)
   {
 
     $scope.beaconProx = 'como demonios sirve aqui pero no alla :(';
+    $scope.beaconDist = 'inalcansable';
+    $scope.beaconTemp = 'congelado';
+    $scope.beaconId = 'xq xq xq???';
+
 
     function onRange(beaconInfo)
     {
@@ -204,6 +211,11 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
       {}, // Empty region matches all beacons.
       onRange,
       onError);
+
+    $scope.beaconProx = 'finito';
+    $scope.beaconDist = 'boom';
+    $scope.beaconTemp = 'boom';
+    $scope.beaconId = 'draw';
   };
 
   function callMedia(beacon){
@@ -239,18 +251,6 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
 
     return result;
   }
-
-  // function getProximity(proximity)
-  // {
-  //  if (!proximity) { return 'No hay beacons cerca'; }
-
-  //  // Eliminate bad values (just in case).
-  //  proximity = Math.max(0, proximity);
-  //  proximity = Math.min(3, proximity);
-
-  //  // Return name for proximity.
-  //  return proximityNames[proximity];
-  // };
 
   app.stopRangingBeacons = function()
   {
