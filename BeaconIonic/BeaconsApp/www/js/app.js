@@ -27,7 +27,7 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
   });
 })
 
-.controller('main',function($scope, $ionicModal, localStorageService){
+.controller('main',function($scope, $ionicModal, localStorageService,$interval){
   $scope.beaconId = 'sin identidad :(';
   $scope.beaconProx = 'aqui nomas';
   $scope.beaconDist = 'como a 100 mts we';
@@ -122,6 +122,9 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
 
   app.startRangingBeacons = function()
   {
+
+    var beaconsList = {};
+
     print('como','tu','te','llamas');
     function print(id,prox,dist,temp){
       $scope.beaconId = id;
@@ -129,7 +132,6 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
       $scope.beaconDist = dist;
       $scope.beaconTemp = temp;
     }
-
 
     function onRange(beaconInfo)
     {
@@ -163,11 +165,13 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
       //   var element = $(createBeaconHTML(beacon));
       //   $('#id-screen-range-beacons .style-item-list').append(element);
       // });
-      if(beaconInfo['beacons'].length>0){
-        for (var i = 0; i < beaconInfo['beacons'].length; i++) {
-          createBeaconHTML(beaconInfo['beacons'][i]);
-        }
-      }
+
+
+      // if(beaconInfo['beacons'].length>0){
+      //   for (var i = 0; i < beaconInfo['beacons'].length; i++) {
+      //     createBeaconHTML(beaconInfo['beacons'][i]);
+      //   }
+      // }
     };
 
     function createBeaconHTML(beacon)
@@ -203,16 +207,21 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
     // app.showScreen('id-screen-range-beacons');
     // $('#id-screen-range-beacons .style-item-list').empty();
 
-    // Request authorisation.
-    estimote.beacons.requestAlwaysAuthorization();
-    alert('starting scan');
+    // // Request authorisation.
+    // estimote.beacons.requestAlwaysAuthorization();
+    // alert('starting scan');
 
-    // Start ranging.
+    // // Start ranging.
     
-    estimote.beacons.startRangingBeaconsInRegion(
-      {}, // Empty region matches all beacons.
-      onRange,
-      onError);
+    // estimote.beacons.startRangingBeaconsInRegion(
+    //   {}, // Empty region matches all beacons.
+    //   onRange,
+    //   onError);
+
+
+    $interval(function() {
+      print('yo','me','llamo','jimmi');
+    }, 2000);//1500
 
   };
 
