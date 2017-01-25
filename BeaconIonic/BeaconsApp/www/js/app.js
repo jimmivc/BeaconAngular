@@ -174,6 +174,7 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
     {
       alert(JSON.stringify(beacon));
       $scope.beaconProx = 'creating beacon html';
+      print('yo','me','llamo','jimmi');
 
       if (beacon.proximity)
       {
