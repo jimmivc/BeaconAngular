@@ -127,10 +127,11 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
     $scope.beaconDist = 'inalcansable';
     $scope.beaconTemp = 'congelado';
     $scope.beaconId = 'xq xq xq???';
-
+    alert($scope);
 
     function onRange(beaconInfo)
     {
+      alert($scope);
       $scope.beaconProx = 'on Range';
       alert('onRange1');
       displayBeconInfo(beaconInfo);
@@ -212,10 +213,6 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
       onRange,
       onError);
 
-    $scope.beaconProx = 'finito';
-    $scope.beaconDist = 'boom';
-    $scope.beaconTemp = 'boom';
-    $scope.beaconId = 'draw';
   };
 
   function callMedia(beacon){
