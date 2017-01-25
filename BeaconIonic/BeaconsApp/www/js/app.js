@@ -48,7 +48,7 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
 
   $scope.scanBeacons = function (){
     alert('casual escaneando');
-    app.startRangingBeacons($scope);
+    app.startRangingBeacons();
   }
 
   // ------------- Private helper function ------------- //
@@ -120,7 +120,7 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
 
 
 
-  app.startRangingBeacons = function($scope)
+  app.startRangingBeacons = function()
   {
     print('como','tu','te','llamas');
     function print(id,prox,dist,temp){
