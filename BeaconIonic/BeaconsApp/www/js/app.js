@@ -124,16 +124,15 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
   {
     print('como','tu','te','llamas');
     function print(id,prox,dist,temp){
-      $scope.beaconProx = 'como demonios sirve aqui pero no alla :(';
-      $scope.beaconDist = 'inalcansable';
-      $scope.beaconTemp = 'congelado';
-      $scope.beaconId = 'xq xq xq???';
+      $scope.beaconId = id;
+      $scope.beaconProx = prox;
+      $scope.beaconDist = dist;
+      $scope.beaconTemp = temp;
     }
+
 
     function onRange(beaconInfo)
     {
-      alert($scope);
-      $scope.beaconProx = 'on Range';
       alert('onRange1');
       displayBeconInfo(beaconInfo);
       alert('onRange2');
