@@ -200,7 +200,7 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
         // alert(beaconsList);
       }
 
-      beaconsList[index] = beaconInfo;
+      beaconsList[index] = beaconAux;
 
     };
 
