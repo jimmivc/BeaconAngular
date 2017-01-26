@@ -44,12 +44,7 @@
         </button>
       </ion-header-bar>
       <ion-content>
-      Escaneando beacons
-
-      <p>Id: {{beaconId}}</p>
-      <p>Proximity: {{beaconProx}}</p>
-      <p>Distancia: {{beaconDist}}</p>
-      <p>"Temperatura": {{beaconTemp}}</p>
+        beacons searched {{beaconTimes}} times
 
       <div class="list card" ng-repeat="beacon in beaconsList">
        <div class="item item-divider">
@@ -59,16 +54,20 @@
         <div class="item item-body">
                 
                 <p>
-                    beacon id: <span ng-bind="beacon.major"></span>
+                    Beacon Id: <span ng-bind="beacon.major"></span>
                 </p>
                 <p>
-                    beacon proximity: <span ng-bind="beacon.proximity"></span>
+                    Beacon Proximity: <span ng-bind="beacon.proximity"></span>
                 </p>
                 <p>
-                    beacon distance: <span ng-bind="beacon.distance"></span>
+                    Beacon Tip: <span ng-bind="beacon.distance"></span>
                 </p>
                 <p>
-                    beacon temperature: <span ng-bind="beacon.macAddress"></span>
+                    Beacon MAC Address: <span ng-bind="beacon.macAddress"></span>
+                </p>
+
+                <p>
+                    Beacon Distance: <span ng-bind="beacon.realDistance"></span>
                 </p>
                 
         </div>

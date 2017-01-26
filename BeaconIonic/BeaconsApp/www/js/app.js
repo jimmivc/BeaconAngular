@@ -28,11 +28,7 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
 })
 
 .controller('main',function($scope, $ionicModal, localStorageService,$interval){
-  $scope.beaconId = 'sin identidad :(';
-  $scope.beaconProx = 'aqui nomas';
-  $scope.beaconDist = 'como a 100 mts we';
-  $scope.beaconTemp = 'ufffff';
-
+  
   $scope.beaconsList = [{proximity:00}];
 
   beaconsList = [];
@@ -40,7 +36,7 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
   localStorage.clear();
   localStorage.setItem('beacons',JSON.stringify([]));
 
-  probando=0;
+  probando = 0;
 
   // Application data.
   app.currentScreenId = null;
@@ -202,15 +198,11 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
 
     };
 
-    // Show screen.
-    // app.showScreen('id-screen-range-beacons');
-    // $('#id-screen-range-beacons .style-item-list').empty();
+    // Request authorisation.
+    estimote.beacons.requestAlwaysAuthorization();
+    alert('starting scan');
 
-    // // Request authorisation.
-    // estimote.beacons.requestAlwaysAuthorization();
-    // alert('starting scan');
-
-    // // Start ranging.
+    // Start ranging.
     
     estimote.beacons.startRangingBeaconsInRegion(
       {}, // Empty region matches all beacons.
@@ -261,7 +253,27 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
 
 
   $interval(function() {
-    $scope.beaconId = probando++;
+    $scope.beaconTimes = probando++;
+
+    for (var i = 0; i < beaconsList.length; i++) {
+      
+      if (beacon.proximity)
+      {
+      
+        beaconsList[i].proximity = app.formatProximity(beacon.proximity);
+        
+      
+      }
+      if (beacon.distance)
+      {
+
+        beaconsList[i].realDistance = app.formatDistance(beacon.distance);          
+        
+        beaconsList[i].distance = howCloseBeaconIs(beacon.distance);
+      }
+
+    }
+
     $scope.beaconsList = beaconsList;
     // alert(beaconsList);
   }, 2000);//1500
