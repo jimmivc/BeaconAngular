@@ -208,10 +208,10 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
 
     // // Start ranging.
     
-    // estimote.beacons.startRangingBeaconsInRegion(
-    //   {}, // Empty region matches all beacons.
-    //   onRange,
-    //   onError);
+    estimote.beacons.startRangingBeaconsInRegion(
+      {}, // Empty region matches all beacons.
+      onRange,
+      onError);
 
 
     $interval(function() {
