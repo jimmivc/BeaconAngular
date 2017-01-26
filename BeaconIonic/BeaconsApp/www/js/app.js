@@ -31,9 +31,9 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
   
   $scope.beaconsList = [{proximity:00}];
 
-  beaconHot = 10.0;
-  beaconWarm = 20.0;
-  beaconArround = 40.0;
+  beaconHot = 5.0;
+  beaconWarm = 10.0;
+  beaconArround = 20.0;
 
   beaconsList = [];
 
