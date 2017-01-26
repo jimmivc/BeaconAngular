@@ -81,7 +81,6 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
 
   app.formatProximity = function(proximity)
   {
-    alert(proximity);
     if (!proximity) { return 'desconocido'; }
 
     // Eliminate bad values (just in case).
@@ -131,9 +130,7 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
 
     function onRange(beaconInfo)
     {
-      alert('onRange1');
       displayBeconInfo(beaconInfo);
-      alert('onRange2');
 
     }
 
@@ -144,10 +141,6 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
 
     function displayBeconInfo(beaconInfo)
     {
-      $scope.beaconProx = 'displayingBeconInfo';
-
-      alert('display beacon info'); 
-      alert('porfis...');
       // alert(JSON.stringify(beaconInfo));
       // Sort beacons by distance.
       // beaconInfo.beacons.sort(function(beacon1, beacon2) {
@@ -165,8 +158,8 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
 
       if(beaconInfo['beacons'].length>0){
         for (var i = 0; i < beaconInfo['beacons'].length; i++) {
-          alert(beaconsList);
-          createBeaconHTML(beaconInfo['beacons'][i],i);
+     
+          // createBeaconHTML(beaconInfo['beacons'][i],i);
 
           beaconsList[i] = beaconInfo['beacons'][i];
 
@@ -268,6 +261,7 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
   $interval(function() {
     $scope.beaconId = probando++;
     $scope.beaconsList = beaconsList;
+    alert(beaconsList);
   }, 2000);//1500
 
 });
