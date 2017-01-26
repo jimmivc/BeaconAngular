@@ -33,6 +33,8 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
   $scope.beaconDist = 'como a 100 mts we';
   $scope.beaconTemp = 'ufffff';
 
+  $scope.beaconsList = [];
+
   localStorage.clear();
   localStorage.setItem('beacons',JSON.stringify([]));
 
@@ -123,7 +125,7 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
   app.startRangingBeacons = function()
   {
 
-    var beaconsList = [{major:0000,name:'test'}];
+    beaconsList = [{major:0000,name:'test'}];
 
     function onRange(beaconInfo)
     {
@@ -215,10 +217,7 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
 
 
     $interval(function() {
-      $scope.beaconId = 'yo';
-      $scope.beaconProx = 'no';
-      $scope.beaconDist = 'se';
-      $scope.beaconTemp = 'mañana';
+        $scope.beaconsList = beaconsList;
     }, 2000);//1500
 
   };
