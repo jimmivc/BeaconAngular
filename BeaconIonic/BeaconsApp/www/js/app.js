@@ -38,6 +38,8 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
   localStorage.clear();
   localStorage.setItem('beacons',JSON.stringify([]));
 
+  probando=0;
+
   // Application data.
   app.currentScreenId = null;
  
@@ -220,11 +222,6 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
       onRange,
       onError);
 
-
-    $interval(function() {
-        $scope.beaconsList = beaconsList;
-    }, 2000);//1500
-
   };
 
   function callMedia(beacon){
@@ -266,5 +263,11 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
     estimote.beacons.stopRangingBeaconsInRegion({});
     app.showHomeScreen();
   };
+
+
+  $interval(function() {
+    $scope.beaconId = probando++;
+    $scope.beaconsList = beaconsList;
+  }, 2000);//1500
 
 });
