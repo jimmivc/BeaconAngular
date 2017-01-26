@@ -256,22 +256,16 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
     $scope.beaconTimes = probando++;
 
     for (var i = 0; i < beaconsList.length; i++) {
-      
-      if (beacon.proximity)
-      {
-      
-        beaconsList[i].proximity = app.formatProximity(beacon.proximity);
-        
-      
-      }
-      if (beacon.distance)
-      {
 
-        beaconsList[i].realDistance = app.formatDistance(beacon.distance);          
-        
-        beaconsList[i].distance = howCloseBeaconIs(beacon.distance);
+      if (beaconDistance<=beaconHot) {
+        beaconsList[i].temperature = 'Caliente';
+      }else if(beaconDistance<=beaconWarm){
+        beaconsList[i].temperature = 'Tibio';
+      }else if(beaconDistance<=beaconArround){
+        beaconsList[i].temperature = 'Frio';
+      }else{
+        beaconsList[i].temperature = 'Ni cerca';
       }
-
     }
 
     $scope.beaconsList = beaconsList;
