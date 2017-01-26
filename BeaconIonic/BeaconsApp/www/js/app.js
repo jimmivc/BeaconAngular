@@ -123,7 +123,7 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
   app.startRangingBeacons = function()
   {
 
-    var beaconsList = {{major:0000,name:'test'}};
+    var beaconsList = [{major:0000,name:'test'}];
 
     function onRange(beaconInfo)
     {
