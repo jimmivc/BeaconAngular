@@ -35,6 +35,8 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
 
   $scope.beaconsList = [{proximity:00}];
 
+  beaconsList = [];
+
   localStorage.clear();
   localStorage.setItem('beacons',JSON.stringify([]));
 
@@ -126,8 +128,6 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
   app.startRangingBeacons = function()
   {
 
-    beaconsList = [];
-
     function onRange(beaconInfo)
     {
       displayBeconInfo(beaconInfo);
@@ -159,9 +159,9 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
       if(beaconInfo['beacons'].length>0){
         for (var i = 0; i < beaconInfo['beacons'].length; i++) {
      
-          // createBeaconHTML(beaconInfo['beacons'][i],i);
+          createBeaconHTML(beaconInfo['beacons'][i],i);
 
-          beaconsList[i] = beaconInfo['beacons'][i];
+          // beaconsList[i] = beaconInfo['beacons'][i];
 
         }
       }
@@ -170,7 +170,8 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
     function createBeaconHTML(beacon,index)
     {
 
-      var beaconInfo;
+      var beaconAux;
+      beaconAux.major = beacon.major;
 
       // alert(JSON.stringify(beacon));
 
@@ -178,7 +179,7 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
       {
         // alert(app.formatProximity(beacon.proximity));
 
-        $scope.beaconProx = '' + app.formatProximity(beacon.proximity);
+        beaconAux.proximity = app.formatProximity(beacon.proximity);
         
         // alert(beaconsList);
       }
@@ -186,7 +187,7 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
       {
         // alert(app.formatDistance(beacon.distance));
 
-        $scope.beaconDist = '' + app.formatDistance(beacon.distance);          
+        beaconAux.distance = app.formatDistance(beacon.distance);          
         // alert(beaconsList);
         
         //llamar a esta funcion si se quiere ejecutar una llamada o accion a api con una distancia definida
@@ -195,9 +196,12 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
         // }
         
         // alert(howCloseBeaconIs(beacon.distance));
-        $scope.beaconTemp = '' + howCloseBeaconIs(beacon.distance);
+        beaconAux.temperature = howCloseBeaconIs(beacon.distance);
         // alert(beaconsList);
       }
+
+      beaconsList[index] = beaconInfo;
+
     };
 
     // Show screen.
