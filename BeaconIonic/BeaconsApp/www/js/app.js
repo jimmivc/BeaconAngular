@@ -28,6 +28,11 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
 })
 
 .controller('main',function($scope, $ionicModal, localStorageService,$interval){
+
+  ////config////
+  beaconsIdsList = ['E1:0D:88:DA:70:BA'];
+  beaconDistance = 10;
+  //////NOT used/////////
   
   $scope.beaconsList = [{proximity:00}];
 
@@ -93,32 +98,9 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
     return app.proximityNames[proximity];
   };
 
-  app.beaconColorStyle = function(color)
-  {
-    if (!color)
-    {
-      color = 0;
-    }
-
-    // Eliminate bad values (just in case).
-    color = Math.max(0, color);
-    color = Math.min(5, color);
-
-    // Return style class for color.
-    return app.beaconColorStyles[color];
-  };
-
   // ------------- Initialisation ------------- //
 
   document.addEventListener('deviceready', onDeviceReady, false);
-
-
-  //////////BEACONS////////
-  beaconsIdsList = ['E1:0D:88:DA:70:BA'];
-  beaconDistance = 10;
-
-  proximityNames = ['Nope','caliente','tibio','frio'];
-
 
 
   app.startRangingBeacons = function()
@@ -137,29 +119,9 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
 
     function displayBeconInfo(beaconInfo)
     {
-      // alert(JSON.stringify(beaconInfo));
-      // Sort beacons by distance.
-      // beaconInfo.beacons.sort(function(beacon1, beacon2) {
-      //   return beacon1.distance > beacon2.distance; });
-
-
-
-      // // Generate HTML for beacons.
-      // $.each(beaconInfo.beacons, function(key, beacon)
-      // {
-      //   var element = $(createBeaconHTML(beacon));
-      //   $('#id-screen-range-beacons .style-item-list').append(element);
-      // });
-
 
       if(beaconInfo['beacons'].length>0){
-        // for (var i = 0; i < beaconInfo['beacons'].length; i++) {
-     
-          // createBeaconHTML(beaconInfo['beacons'][i],i);
-
           beaconsList = beaconInfo['beacons'];
-
-        // }
       }
     };
 
@@ -179,19 +141,15 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
       }
       if (beacon.distance)
       {
-        // alert(app.formatDistance(beacon.distance));
 
         beaconAux.distance = app.formatDistance(beacon.distance);          
-        // alert(beaconsList);
         
         //llamar a esta funcion si se quiere ejecutar una llamada o accion a api con una distancia definida
         // if(isClose(beacon.distance,beaconDistance)){
         //  callMedia(beacon);
         // }
         
-        // alert(howCloseBeaconIs(beacon.distance));
         beaconAux.temperature = howCloseBeaconIs(beacon.distance);
-        // alert(beaconsList);
       }
 
       beaconsList[index] = beaconAux;
