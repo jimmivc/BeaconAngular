@@ -257,11 +257,11 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
 
     for (var i = 0; i < beaconsList.length; i++) {
 
-      if (beaconDistance<=beaconHot) {
+      if (beaconsList.distance<=beaconHot) {
         beaconsList[i].temperature = 'Caliente';
-      }else if(beaconDistance<=beaconWarm){
+      }else if(beaconsList.distance<=beaconWarm){
         beaconsList[i].temperature = 'Tibio';
-      }else if(beaconDistance<=beaconArround){
+      }else if(beaconsList.distance<=beaconArround){
         beaconsList[i].temperature = 'Frio';
       }else{
         beaconsList[i].temperature = 'Ni cerca';
