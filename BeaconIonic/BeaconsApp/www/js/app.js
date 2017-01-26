@@ -209,6 +209,26 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
       onRange,
       onError);
 
+    $interval(function() {
+      $scope.beaconTimes = probando++;
+
+      for (var i = 0; i < beaconsList.length; i++) {
+
+        if (beaconsList[i].distance<=beaconHot) {
+          beaconsList[i].temperature = 'Caliente';
+        }else if(beaconsList[i].distance<=beaconWarm){
+          beaconsList[i].temperature = 'Tibio';
+        }else if(beaconsList[i].distance<=beaconArround){
+          beaconsList[i].temperature = 'Frio';
+        }else{
+          beaconsList[i].temperature = 'Ni cerca';
+        }
+      }
+
+      $scope.beaconsList = beaconsList;
+      // alert(beaconsList);
+    }, 1000);//1500
+
   };
 
   function callMedia(beacon){
@@ -251,25 +271,5 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
     app.showHomeScreen();
   };
 
-
-  $interval(function() {
-    $scope.beaconTimes = probando++;
-
-    for (var i = 0; i < beaconsList.length; i++) {
-
-      if (beaconsList[i].distance<=beaconHot) {
-        beaconsList[i].temperature = 'Caliente';
-      }else if(beaconsList[i].distance<=beaconWarm){
-        beaconsList[i].temperature = 'Tibio';
-      }else if(beaconsList[i].distance<=beaconArround){
-        beaconsList[i].temperature = 'Frio';
-      }else{
-        beaconsList[i].temperature = 'Ni cerca';
-      }
-    }
-
-    $scope.beaconsList = beaconsList;
-    // alert(beaconsList);
-  }, 1000);//1500
 
 });
