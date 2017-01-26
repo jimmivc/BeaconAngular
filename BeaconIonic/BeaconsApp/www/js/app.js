@@ -262,7 +262,6 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
     $scope.beaconId = probando++;
     $scope.beaconsList = beaconsList;
     alert(beaconsList);
-    beaconsList = [];
   }, 2000);//1500
 
 });
