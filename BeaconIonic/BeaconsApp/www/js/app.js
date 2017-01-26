@@ -159,9 +159,9 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
       if(beaconInfo['beacons'].length>0){
         for (var i = 0; i < beaconInfo['beacons'].length; i++) {
      
-          createBeaconHTML(beaconInfo['beacons'][i],i);
+          // createBeaconHTML(beaconInfo['beacons'][i],i);
 
-          // beaconsList[i] = beaconInfo['beacons'][i];
+          beaconsList[i] = beaconInfo['beacons'][i];
 
         }
       }
@@ -170,7 +170,7 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
     function createBeaconHTML(beacon,index)
     {
 
-      var beaconAux;
+      var beaconAux = {};
       beaconAux.major = beacon.major;
 
       // alert(JSON.stringify(beacon));
