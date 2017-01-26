@@ -33,7 +33,7 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
   $scope.beaconDist = 'como a 100 mts we';
   $scope.beaconTemp = 'ufffff';
 
-  $scope.beaconsList = [];
+  $scope.beaconsList = [{proximity:00}];
 
   localStorage.clear();
   localStorage.setItem('beacons',JSON.stringify([]));
@@ -125,7 +125,7 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
   app.startRangingBeacons = function()
   {
 
-    beaconsList = [{major:0000,name:'test'}];
+    beaconsList = [];
 
     function onRange(beaconInfo)
     {
@@ -165,38 +165,43 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
         for (var i = 0; i < beaconInfo['beacons'].length; i++) {
           alert(beaconsList);
           createBeaconHTML(beaconInfo['beacons'][i],i);
+
+          beaconsList[i] = beaconInfo['beacons'][i];
+
         }
       }
     };
 
     function createBeaconHTML(beacon,index)
     {
-      beaconsList[index] = beacon;
+
       var beaconInfo;
 
-      alert(JSON.stringify(beacon));
+      // alert(JSON.stringify(beacon));
 
       if (beacon.proximity)
       {
-        alert(app.formatProximity(beacon.proximity));
+        // alert(app.formatProximity(beacon.proximity));
 
         $scope.beaconProx = '' + app.formatProximity(beacon.proximity);
         
-        alert(beaconsList);
+        // alert(beaconsList);
       }
       if (beacon.distance)
       {
-        alert(app.formatDistance(beacon.distance));
+        // alert(app.formatDistance(beacon.distance));
 
         $scope.beaconDist = '' + app.formatDistance(beacon.distance);          
-        alert(beaconsList);
+        // alert(beaconsList);
+        
         //llamar a esta funcion si se quiere ejecutar una llamada o accion a api con una distancia definida
         // if(isClose(beacon.distance,beaconDistance)){
         //  callMedia(beacon);
         // }
-        alert(howCloseBeaconIs(beacon.distance));
+        
+        // alert(howCloseBeaconIs(beacon.distance));
         $scope.beaconTemp = '' + howCloseBeaconIs(beacon.distance);
-        alert(beaconsList);
+        // alert(beaconsList);
       }
     };
 
