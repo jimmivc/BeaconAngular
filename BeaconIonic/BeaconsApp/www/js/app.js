@@ -31,6 +31,10 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
   
   $scope.beaconsList = [{proximity:00}];
 
+  beaconHot = 10.0;
+  beaconWarm = 20.0;
+  beaconArround = 40.0;
+
   beaconsList = [];
 
   localStorage.clear();
@@ -112,10 +116,6 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
   //////////BEACONS////////
   beaconsIdsList = ['E1:0D:88:DA:70:BA'];
   beaconDistance = 10;
-
-  beaconHot = 10.0;
-  beaconWarm = 20.0;
-  beaconArround = 40.0;
 
   proximityNames = ['Nope','caliente','tibio','frio'];
 
@@ -270,6 +270,6 @@ var app = angular.module('beaconApp', ['ionic','LocalStorageModule'])
 
     $scope.beaconsList = beaconsList;
     // alert(beaconsList);
-  }, 2000);//1500
+  }, 1000);//1500
 
 });
